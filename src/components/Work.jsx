@@ -1,6 +1,7 @@
 import React from "react";
 import WorkImg from "../assets/workImg.jpeg";
 import Spotify from '../assets/spotify.png'
+import Inside from '../assets/inside-app.png'
 import { AiOutlineGithub, AiOutlinePlayCircle } from "react-icons/ai";
 import { FaBriefcase } from "react-icons/fa";
 
@@ -13,12 +14,12 @@ const projects = [
     description: "A single-page application built with React.js and tailwindcss featuring dynamic content and responsive design.",
   },
   {
-    title: "Another Project",
-    image: WorkImg,
-    demoLink: "/",
-    codeLink: "/",
-    description: "Another example of a project with dynamic content and responsive design.",
-  },
+    title: "Interior Design Website",
+    image: Inside,
+    demoLink: "https://the-inside.vercel.app",
+    codeLink: "https://github.com/Lucatoneybuzz/Inside-2.git",
+    description: "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
+  },           
   {
     title: "Another Project",
     image: WorkImg,
