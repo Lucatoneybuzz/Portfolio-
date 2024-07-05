@@ -13,10 +13,10 @@
 }
 
 .content-div {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 250px;
+  background-repeat: auto;
+  background-size: auto;
+  background-position: auto;
+  height: auto;
 }
 
 

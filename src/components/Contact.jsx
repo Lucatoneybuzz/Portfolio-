@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { HiOutlineMail } from "react-icons/hi"; // Import a mail icon from react-icons
-import { ClipLoader } from "react-spinners"; // Import the spinner
-import { FaCheckCircle, FaTimesCircle } from "react-icons/fa"; // Import success and error icons
+import { ClipLoader } from "react-spinners";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,6 @@ const Contact = () => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +23,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setSubmissionStatus(null);
 
     // Perform form submission using Formspree
     fetch("https://formspree.io/f/xbjnnzve", {
@@ -36,23 +35,19 @@ const Contact = () => {
       .then((response) => {
         setIsLoading(false);
         if (response.ok) {
-          setSubmissionStatus("success");
+          toast.success("Message sent successfully!");
           setFormData({
             name: "",
             email: "",
             message: "",
           });
-          // Clear success message after 2 seconds
-          setTimeout(() => {
-            setSubmissionStatus(null);
-          }, 2000);
         } else {
-          setSubmissionStatus("error");
+          toast.error("Failed to send message. Please try again.");
         }
       })
       .catch((error) => {
         setIsLoading(false);
-        setSubmissionStatus("error");
+        toast.error("Failed to send message. Please try again.");
       });
   };
 
@@ -61,21 +56,21 @@ const Contact = () => {
       name="contact"
       className="w-full min-h-screen bg-[#0a192f] flex justify-center items-center p-4"
     >
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col max-w-[600px] w-full"
-      >
-        <div className="pb-8 lg:mt-0 mt-[1200px]">
-          <p className="text-4xl font-bold inline border-b-4 border-pink-600 text-gray-300">
+      <ToastContainer />
+      <form method="post" onSubmit={handleSubmit} className="flex flex-col max-w-[600px] w-full mx-auto">
+        <div className="pb-8 mt-8 sm:mt-0">
+          <p className="lg:text-4xl text-2xl font-bold inline border-b-4 border-pink-600 text-gray-300">
             Contact
           </p>
-          <p className="text-gray-300 py-4">
+          <p className="text-gray-400 py-4 font-medium">
             Submit the form below or shoot me an email -{" "}
-            <a className="text-pink-700" href="mailto:lucatoney23@gmail.com">lucatoney23@gmail.com</a>
+            <a className="text-pink-700" href="mailto:lucatoney23@gmail.com">
+              lucatoney23@gmail.com
+            </a>
           </p>
         </div>
         <input
-          className="bg-[#ccd6f6] p-2 mb-4"
+          className="bg-[#ccd6f6] p-2 mb-4 rounded-md"
           type="text"
           placeholder="Name"
           name="name"
@@ -84,7 +79,7 @@ const Contact = () => {
           required
         />
         <input
-          className="bg-[#ccd6f6] p-2 mb-4"
+          className="bg-[#ccd6f6] p-2 mb-4 rounded-md"
           type="email"
           placeholder="Email"
           name="email"
@@ -93,7 +88,7 @@ const Contact = () => {
           required
         />
         <textarea
-          className="bg-[#ccd6f6] p-2 mb-4"
+          className="bg-[#ccd6f6] p-2 mb-4 rounded-md"
           name="message"
           rows="5"
           placeholder="Message"
@@ -103,29 +98,15 @@ const Contact = () => {
         ></textarea>
         <button
           type="submit"
-          className="text-white border-2 lg:hover:bg-pink-600 border-pink-700 px-4 py-3 my-4 mx-auto flex items-center justify-center"
+          className="text-white border-2 border-pink-700 px-4 py-3 my-4 mx-auto flex items-center justify-center rounded-md transition-colors duration-300 lg:hover:bg-pink-600"
           disabled={isLoading}
         >
           {isLoading ? (
             <ClipLoader size={20} color="#fff" />
-          ) : submissionStatus === "success" ? (
-            <FaCheckCircle size={20} color="#34D399" />
-          ) : submissionStatus === "error" ? (
-            <FaTimesCircle size={20} color="#EF4444" />
           ) : (
             "Let's Collaborate"
           )}
         </button>
-        {submissionStatus === "success" && (
-          <p className="text-green-500 mt-4 flex items-center">
-            <FaCheckCircle className="mr-2" /> Message sent successfully!
-          </p>
-        )}
-        {submissionStatus === "error" && (
-          <p className="text-red-500 mt-4 flex items-center">
-            <FaTimesCircle className="mr-2" /> Failed to send message. Please try again.
-          </p>
-        )}
       </form>
     </div>
   );

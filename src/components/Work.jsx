@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import WorkImg from "../assets/workImg.jpeg";
-import Spotify from '../assets/spotify.png'
-import Inside from '../assets/inside-app.png'
+import Spotify from "../assets/spotify.png";
+import Inside from "../assets/inside-app.png";
 import { AiOutlineGithub, AiOutlinePlayCircle } from "react-icons/ai";
 import { FaBriefcase } from "react-icons/fa";
 
@@ -11,60 +11,82 @@ const projects = [
     image: Spotify,
     demoLink: "https://spotify-clone-bay-nine.vercel.app",
     codeLink: "https://github.com/Lucatoneybuzz/Spotify-clone.git",
-    description: "A single-page application built with React.js and tailwindcss featuring dynamic content and responsive design.",
+    description:
+      "A single-page application built with React.js and Tailwind CSS featuring dynamic content and responsive design.",
   },
   {
     title: "Interior Design Website",
     image: Inside,
     demoLink: "https://the-inside.vercel.app",
     codeLink: "https://github.com/Lucatoneybuzz/Inside-2.git",
-    description: "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
-  },           
-  {
-    title: "Another Project",
-    image: WorkImg,
-    demoLink: "/",
-    codeLink: "/",
-    description: "Another example of a project with dynamic content and responsive design.",
+    description:
+      "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
   },
   {
-    title: "Another Project",
-    image: WorkImg,
-    demoLink: "/",
-    codeLink: "/",
-    description: "Another example of a project with dynamic content and responsive design.",
+    title: "Interior Design Website",
+    image: Inside,
+    demoLink: "https://the-inside.vercel.app",
+    codeLink: "https://github.com/Lucatoneybuzz/Inside-2.git",
+    description:
+      "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
   },
   {
-    title: "Another Project",
-    image: WorkImg,
-    demoLink: "/",
-    codeLink: "/",
-    description: "Another example of a project with dynamic content and responsive design.",
+    title: "Interior Design Website",
+    image: Inside,
+    demoLink: "https://the-inside.vercel.app",
+    codeLink: "https://github.com/Lucatoneybuzz/Inside-2.git",
+    description:
+      "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
   },
+  {
+    title: "Interior Design Website",
+    image: Inside,
+    demoLink: "https://the-inside.vercel.app",
+    codeLink: "https://github.com/Lucatoneybuzz/Inside-2.git",
+    description:
+      "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
+  },
+  
   // Add more projects here
 ];
 
 const ProjectItem = ({ title, image, demoLink, codeLink, description }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleDescription = () => {
+    setShowMore(!showMore);
+  };
+
   return (
-    <div className="shadow-lg shadow-[#040c16] group container rounded-md flex flex-col md:flex-row justify-between items-center mx-auto content-div transition-transform transform hover:scale-105 p-4 bg-[#0a192f]">
-      <img
-        src={image}
-        alt={title}
-        className="w-full md:w-1/3 lg:h-64 h-25 object-cover rounded-md mb-4 md:mb-0 md:mr-4"
-      />
-      <div className="flex flex-col justify-center w-full md:w-2/3 text-center md:text-left">
-        <span className="text-2xl font-bold text-pink-700 tracking-wider block mb-2">
+    <div className="container rounded-md flex flex-col justify-between items-center mx-auto content-div transition-transform transform lg:hover:scale-105 p-4 bg-[#0a192f] relative">
+      <div className="relative w-full h-48 mb-4">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover rounded-md"
+        />
+      </div>
+      <div className="flex flex-col items-center">
+        <span className="text-2xl font-bold text-gray-400 tracking-wider block mb-2 text-center">
           {title}
         </span>
-        <p className="text-gray-400 mb-4">{description}</p>
-        <div className="pt-4 flex justify-center md:justify-start">
-          <a href={demoLink} className="m-2">
-            <button className="text-center rounded-lg px-4 py-3 bg-white text-gray-700 font-bold text-lg flex items-center justify-center lg:hover:text-pink-700">
+        <p className="text-gray-500 mb-4 text-center font-medium">
+          {showMore ? description : `${description.substring(0, 120)}...`}
+          <button
+            className="text-pink-600 hover:underline focus:outline-none"
+            onClick={toggleDescription}
+          >
+            {showMore ? "Show Less" : "Show More"}
+          </button>
+        </p>
+        <div className="flex space-x-4">
+          <a href={demoLink}>
+            <button className="text-center rounded-full px-4 py-2 bg-none border-2 border-pink-700 text-white-700 font-semibold text-[14px] flex items-center justify-center transition duration-300 ease-in-out transform lg:hover:scale-110  lg:hover:bg-pink-600">
               <AiOutlinePlayCircle className="inline-block mr-2" /> Demo
             </button>
           </a>
-          <a href={codeLink} className="m-2">
-            <button className="text-center rounded-lg px-4 py-3 bg-white text-gray-700 font-bold text-lg flex items-center justify-center  lg:hover:text-pink-700">
+          <a href={codeLink}>
+            <button className="text-center rounded-full px-4 py-2 bg-none border-2 border-pink-700 text-white-700 font-semibold text-[14px] flex items-center justify-center transition duration-300 ease-in-out transform lg:hover:scale-110  lg:hover:bg-pink-600">
               <AiOutlineGithub className="inline-block mr-2" /> Code
             </button>
           </a>
@@ -81,15 +103,15 @@ const Work = () => {
         <div className="pb-8 flex items-center">
           <FaBriefcase className="text-4xl text-pink-600 mr-4 mb-11" />
           <div>
-            <p className="text-4xl font-bold inline border-b-4 text-gray-300 border-pink-600">
+            <p className="lg:text-4xl text-2xl font-bold inline border-b-4 text-gray-300 border-pink-600">
               Work
             </p>
-            <p className="py-6">// Check out some of my recent work</p>
+            <p className="py-6 font-semibold">// Check out some of my recent work</p>
           </div>
         </div>
 
         {/* Container */}
-        <div className="grid grid-cols-1 lg:gap-8 gap-[20%]">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <ProjectItem
               key={index}

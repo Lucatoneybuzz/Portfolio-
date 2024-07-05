@@ -26,16 +26,15 @@ const Skills = () => {
     <div name="skills" className="w-full min-h-screen bg-[#0a192f] text-gray-300 py-20">
       {/* Container */}
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
-        
         <div>
-        <FaTools size={35} className="inline-block mr-2 mb-0.5  text-pink-600" />
-          <motion.p
+          <FaTools size={35} className="inline-block mr-2 mb-0.5  text-pink-600" />
+          <motion.p 
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold inline border-b-4 border-pink-600"
+            className="lg:text-4xl text-2xl font-bold inline border-b-4 border-pink-600"
           >
-             Skills {/* Icon */}
+            Skills {/* Icon */}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: -50 }}
@@ -43,7 +42,7 @@ const Skills = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="py-4"
           >
-            // These are the technologies I've worked with
+            {/* These are the technologies I've worked with */}
           </motion.p>
         </div>
 
@@ -53,10 +52,11 @@ const Skills = () => {
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="shadow-md shadow-[#040c16] hover:scale-110 transition-transform duration-500"
+              whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)" }}
+              transition={{ duration: 0.3 }}
+              className="shadow-md shadow-[#040c16] transition-transform duration-500"
             >
-              <img className="w-20 mx-auto" src={skill.image} alt={`${skill.name} icon`} />
+              <img className="w-20 mx-auto max-w-full" src={skill.image} alt={`${skill.name} icon`} />
               <p className="my-4">{skill.name}</p>
             </motion.div>
           ))}

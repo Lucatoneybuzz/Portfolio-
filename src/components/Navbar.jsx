@@ -48,12 +48,12 @@ const Navbar = () => {
           className="text-2xl font-bold cursor-pointer text-pink-700"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          Lucatoneybuzz
+          <p className="lg:text-2xl text-[16px]">Lucatoneybuzz<span style={{color: 'greenyellow'}}>‹⁄›</span></p>
         </span>
       </div>
 
       {/* Menu */}
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex font-medium">
         {sections.map((section) => (
           <li key={section} className="px-4">
             <Link
