@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WorkImg from "../assets/workImg.jpeg";
+import LucatoneyAi from "../assets/lucatoneyAi.png";
 import Spotify from "../assets/spotify.png";
 import Inside from "../assets/inside-app.png";
 import { AiOutlineGithub, AiOutlinePlayCircle } from "react-icons/ai";
@@ -23,12 +23,12 @@ const projects = [
       "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
   },
   {
-    title: "Interior Design Website",
-    image: Inside,
-    demoLink: "https://the-inside.vercel.app",
-    codeLink: "https://github.com/Lucatoneybuzz/Inside-2.git",
+    title: "LucatoneyAi",
+    image: LucatoneyAi,
+    demoLink: "https://lucatoneyai.vercel.app",
+    codeLink: "https://github.com/Lucatoneybuzz/LucatoneyAi.git",
     description:
-      "Developed a bespoke, responsive website for an interior design company using React and Tailwind CSS, featuring a portfolio, service details, client testimonials, and a dynamic contact form. Focused on modern aesthetics and usability to enhance visual appeal and attract potential clients.",
+    'LucatoneyAi is a web application that leverages the Gemini API to provide AI-powered responses to user prompts. It features an interactive UI where users can select predefined prompts or enter their own to get dynamic answers.'
   },
   {
     title: "Interior Design Website",
