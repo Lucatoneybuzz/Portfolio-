@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LucatoneyAi from "../assets/lucatoneyAi.png";
+import LucatoneyAi from "../assets/lucatoneyAI.png";
 import Spotify from "../assets/spotify.png";
 import Inside from "../assets/inside-app.png";
 import { AiOutlineGithub, AiOutlinePlayCircle } from "react-icons/ai";
