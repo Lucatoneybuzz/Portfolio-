@@ -5,6 +5,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { Link } from "react-scroll";
 import Tony from '../assets/Tony.pdf';
+import logo from '../assets/lucatoneybuzz.logo1.png';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -43,13 +44,13 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50">
-      <div>
-        <span
-          className="text-2xl font-bold cursor-pointer text-pink-700"
+      <div className="flex items-center">
+        <img
+          src={logo}
+          alt="Lucatoneybuzz Logo"
+          className="lg:h-[120px] lg:w-[110px] lg:mt-[110px] lg:mb-[90px] ml-[-5px] mt-[30px] cursor-pointer h-[70px] w-[70px] mb-7 saturate-100"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          <p className="lg:text-2xl text-[16px]">Lucatoneybuzz<span style={{color: 'greenyellow'}}>‹⁄›</span></p>
-        </span>
+        />
       </div>
 
       {/* Menu */}
