@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { RiDownload2Line } from "react-icons/ri";
-import ProfilePic from "../assets/pro.jpg";
+import ProfilePic from "../assets/pro.png";
 import Tony from "../assets/Tony.pdf";
 import { Link } from "react-scroll";
 
@@ -26,7 +26,7 @@ const Home = () => {
           <img
             src={ProfilePic}
             alt="Profile"
-            className="rounded-full w-48 h-48 md:w-64 md:h-64 border-4 border-pink-600 object-cover shadow-lg hover:scale-105 transition-transform duration-500"
+            className="rounded-full w-50 h-50 sm:w-60 sm:h-60 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 object-cover border-4 border-pink-600 shadow-xl transform hover:scale-105 hover:shadow-2xl transition-all duration-500 ease-in-out"
           />
         </motion.div>
 
@@ -60,7 +60,7 @@ const Home = () => {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-[#8892b0] py-4 max-w-[700px] mx-auto md:mx-0 text-sm md:text-base font-semibold fo"
+            className="text-[#8892b0] py-4 max-w-[700px] mx-auto md:mx-0 text-sm md:text-base font-semibold"
           >
             I'm a full-stack developer specializing in building (and
             occasionally designing) exceptional digital experiences. Currently,
